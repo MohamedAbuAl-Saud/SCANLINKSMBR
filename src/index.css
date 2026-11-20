@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+    --font-body: 'Manrope', 'IBM Plex Sans Arabic', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --sm-bg-main: #ffffff;
+    --sm-bg-secondary: #f7f7f7;
+    --sm-bg-card: #ffffff;
+    --sm-border: #e5e7eb;
+    --sm-text-main: #111827;
+    --sm-text-muted: #6b7280;
+  }
+
+  .dark {
+    --sm-bg-main: #000000;
+    --sm-bg-secondary: #080808;
+    --sm-bg-card: #0d0d0d;
+    --sm-border: #202020;
+    --sm-text-main: #ffffff;
+    --sm-text-muted: #a1a1aa;
+  }
+
+  html {
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+  }
+
+  html[lang="ar"] {
+    font-family: 'IBM Plex Sans Arabic', var(--font-body);
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+
+  html[lang="ar"] h1,
+  html[lang="ar"] h2,
+  html[lang="ar"] h3,
+  html[lang="ar"] h4,
+  html[lang="ar"] .font-display {
+    font-family: 'IBM Plex Sans Arabic', var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.sm-grid-surface {
+  background-image:
+    linear-gradient(to right, rgba(17, 24, 39, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 24, 39, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.dark .sm-grid-surface {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+@keyframes mascotBob {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes stickerFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(2deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
